@@ -1,0 +1,208 @@
+:root {
+  --Grayish-Blue: hsl(237, 18%, 59%);
+  --Soft-Red: hsl(345, 95%, 68%);
+  --White: hsl(0, 0%, 100%);
+  --Dark-Desaturated-Blue: hsl(236, 21%, 26%);
+  --Dark-Desaturated-Blue-Top: hsla(236, 21%, 26%, 0.6);
+  --Very-Dark-Blue: hsl(235, 16%, 14%);
+  --Very-Dark-Mostly-Black-Blue: hsl(234, 17%, 12%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Red Hat Text;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background-image: url(./images/bg-stars.svg), url(./images/pattern-hills.svg);
+  background-color: var(--Very-Dark-Blue);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+body::after {
+  content: "Coded by Burak Özcan";
+  color: var(--White);
+  font-size: 3rem;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  background-color: var(--Dark-Desaturated-Blue);
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  animation: creator 7s forwards;
+}
+@keyframes creator {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    transform: translateY(-100%);
+  }
+}
+main {
+  padding-bottom: 10rem;
+}
+.main__title {
+  text-transform: uppercase;
+  color: var(--White);
+  padding: 0 1rem;
+  margin-bottom: 6rem;
+}
+.remain__date {
+  justify-content: center;
+  display: flex;
+  list-style: none;
+}
+.remain__period {
+  margin-right: 1rem;
+  position: relative;
+}
+.remain__period:last-child {
+  margin: 0;
+}
+.remain__period::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2rem;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: var(--Very-Dark-Blue);
+  opacity: 0.3;
+}
+.remain__period::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 2rem;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: var(--Dark-Desaturated-Blue-Top);
+  opacity: 0.4;
+}
+
+.remain__time {
+  color: var(--Soft-Red);
+  position: relative;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 0.5rem;
+  background: var(--Dark-Desaturated-Blue);
+  box-shadow: 0 0.5rem 1px 0 var(--Very-Dark-Mostly-Black-Blue);
+  border-radius: 0.3rem;
+}
+.remain__time::before {
+  content: "";
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  z-index: 2;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%);
+  background: var(--Very-Dark-Blue);
+  border-radius: 50%;
+}
+.remain__time::after {
+  content: "";
+  position: absolute;
+  width: 0.4rem;
+  height: 0.4rem;
+  z-index: 2;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  background: var(--Very-Dark-Blue);
+  border-radius: 50%;
+}
+.remain__name {
+  text-transform: uppercase;
+  color: var(--Grayish-Blue);
+  letter-spacing: 1.5px;
+  font-size: 0.5rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 5%;
+  font-weight: 400;
+  color: var(--White);
+}
+.social {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.social svg path {
+  transition: 0.5s;
+}
+.social svg path:hover {
+  fill: var(--Soft-Red);
+}
+footer a {
+  color: var(--Soft-Red);
+  text-decoration: none;
+}
+@media only screen and (min-width: 34rem) {
+  .remain__period::before {
+    height: 3rem;
+  }
+  .remain__period::after {
+    width: 6rem;
+    top: 3rem;
+    left: 0.5rem;
+  }
+  .remain__time {
+    font-size: 3rem;
+    width: 6rem;
+    height: 6rem;
+    margin: 0 0.5rem 1.5rem;
+  }
+  .remain__name {
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (min-width: 52rem) {
+  body {
+    background-size: 100%;
+  }
+  .remain__period::before {
+    height: 4rem;
+  }
+  .remain__period::after {
+    width: 8rem;
+    left: 1rem;
+    top: 4rem;
+  }
+  .remain__time {
+    width: 8rem;
+    height: 8rem;
+    font-size: 4rem;
+    margin: 0 1rem 1.5rem;
+  }
+  .remain__time::before {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+  .remain__time::after {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+  .remain__name {
+    font-size: 1rem;
+  }
+}
